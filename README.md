@@ -1,6 +1,7 @@
 # csgo-rank-icons
 
 A collection of CS:GO rank icons extracted straight from the game's binaries
+The sole reason behind this repo is because I couldn't find any original icon sets, thus I set out to find the original icons myself
 
 # How to extract from CS:GO binaries yourself
 
