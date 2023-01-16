@@ -14,9 +14,9 @@ fs.readdir( './', ( err, folders ) => {
 
 	folders.forEach( ( folder ) => {
 
-		if( !fs.lStatSync( `./${ folder }` ).isDirectory( ) ) return;
+		if( !fs.lstatSync( `./${ folder }` ).isDirectory( ) ) return;
 
-		fs.readdir( `./${ folder }/` ).readdir( ( err, files ) => {
+		fs.readdir( `./${ folder }/`, ( err, files ) => {
 
 			if( err ) {
 
@@ -34,7 +34,7 @@ fs.readdir( './', ( err, folders ) => {
 
 					const ext = path.extname( file );
 
-					fs.rename( `./${ folder }/${ file }`, `${ match[ 0 ] }.${ ext }`, ( err ) => console.log( err ) );
+					fs.rename( `./${ folder }/${ file }`, `./${ folder }/${ regEx[ 0 ] }${ ext }`, ( err ) => console.log( err ) );
 
 				} else {
 
@@ -42,7 +42,7 @@ fs.readdir( './', ( err, folders ) => {
 
 					if( split.length != 2 ) return;
 
-					fs.rename( `./${ folder }/${ file }`, `./${ split[ 1 ] }` );
+					fs.rename( `./${ folder }/${ file }`, `./${ folder }/${ split[ 1 ] }` );
 
 				}
 
